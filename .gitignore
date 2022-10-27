@@ -1,0 +1,6 @@
+database/
+musicians--api/*
+musicians--frontend/*
+node_modules
+pgdata
+pgadmin-data

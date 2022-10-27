@@ -1,0 +1,16 @@
+{
+  "name": "Musicians",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "type": "image/png",
+      "sizes": "32x32",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": ".",
+  "short_name": "Musicians",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
