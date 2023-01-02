@@ -88,7 +88,7 @@ export const Swiping = ({ currUserId }: { currUserId: number }) => {
         <Loader />
       ) : status === 'error' ? (
         <Error message={error.message} />
-      ) : !data && data === [] ? (
+      ) : !data ? (
         <h1 className="">No Users Left</h1>
       ) : (
         data.length > 0 &&
