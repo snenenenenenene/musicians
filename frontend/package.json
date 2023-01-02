@@ -39,6 +39,7 @@
     "react-scripts": "5.0.0",
     "react-select": "^5.3.1",
     "react-slick": "^0.28.1",
+    "react-spring": "^8.0.27",
     "react-spring-bottom-sheet": "^3.4.0",
     "react-switch": "^6.0.0",
     "react-tinder-card": "^1.4.5",
