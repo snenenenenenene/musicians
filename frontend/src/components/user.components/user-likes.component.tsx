@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useQuery } from 'react-query';
 import { Product } from '../../constants/types';
 import { Error } from '../../pages/erorr.page';
-import { getBands, getProducts, getUserLikedProducts } from '../../services/api-calls';
+import { getUserLikedProducts } from '../../services/api-calls';
 import { Loader } from '../common.components/loader.component';
 import { Track } from '../common.components/track.component';
 

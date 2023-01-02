@@ -1,7 +1,21 @@
 import { useEffect, useRef, useState } from 'react';
 import Button, { SecondaryButton } from '../common.components/button.component';
 
-export const Product = ({ track, album, name, price, image, index }: any) => {
+export const Product = ({
+  track,
+  album,
+  name,
+  price,
+  image,
+  index,
+}: {
+  track: any;
+  album: any;
+  name: string;
+  price: any;
+  image: any;
+  index: any;
+}) => {
   return (
     <div className="rounded-3xl justify-center h-16 cursor-pointer overflow-hidden flex flex-col hover:bg-main-2">
       <div className="flex w-full items-center">

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useQuery } from 'react-query';
-import { getBands, getFollowingBands, getJoinedAndFollowingBands } from '../../services/api-calls';
+import { getJoinedAndFollowingBands } from '../../services/api-calls';
 import { Error } from '../../pages/erorr.page';
 import { Loader } from '../common.components/loader.component';
 import { Artist } from '../common.components/artist.component';

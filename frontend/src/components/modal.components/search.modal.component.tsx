@@ -9,7 +9,6 @@ import { MdClear } from 'react-icons/md';
 import { ThemeContext } from '../../services/theme-provider';
 import { Band } from '../../constants/types';
 import { nanoid } from 'nanoid';
-import { userInfo } from 'os';
 import { GlobalContext } from '../../services/store';
 
 export const SearchComp = ({ onChange }: { onChange: (e: any) => any }) => {
@@ -41,7 +40,13 @@ export const SearchComp = ({ onChange }: { onChange: (e: any) => any }) => {
   );
 };
 
-export default function SearchModal({ open = false, setOpen = () => {} }: any) {
+export default function SearchModal({
+  open = false,
+  setOpen = () => {},
+}: {
+  open: boolean;
+  setOpen: any;
+}) {
   const { user } = useContext(GlobalContext);
   const [searchQuery, setSearchQuery] = React.useState('');
 

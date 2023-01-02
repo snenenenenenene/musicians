@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import { IoMdHeart, IoMdHeartEmpty, IoMdVolumeHigh } from 'react-icons/io';
 import { MdMusicNote, MdPause, MdPlayArrow, MdVolumeMute } from 'react-icons/md';
 import { useMutation, useQueryClient } from 'react-query';
@@ -10,26 +10,15 @@ import Button from '../common.components/button.component';
 export const Player = () => {
   const {
     currentSong,
-    setCurrentSong,
-    volume,
-    setVolume,
     user,
     handleToggleMuted,
     muted,
     duration,
-    setMuted,
     played,
-    setPlayed,
     playing,
     playedSeconds,
-    setPlaying,
-    handlePlay,
-    handlePause,
     handleSeekChange,
-    handleProgress,
     handlePlayPause,
-    handleVolumeChange,
-    handleDuration,
   } = useContext(GlobalContext);
 
   const queryClient = useQueryClient();

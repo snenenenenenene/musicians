@@ -1,4 +1,4 @@
-import React, { createRef, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import { createRef, useContext, useMemo, useRef, useState } from 'react';
 import { FiMusic } from 'react-icons/fi';
 import { IoMdHeart } from 'react-icons/io';
 import { MdClose } from 'react-icons/md';

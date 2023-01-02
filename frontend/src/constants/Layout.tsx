@@ -49,7 +49,15 @@ export const CheckBox = ({
   );
 };
 
-export const Select = ({ children, onChange, className }: any) => {
+export const Select = ({
+  children,
+  onChange,
+  className,
+}: {
+  children: any;
+  onChange: any;
+  className: string;
+}) => {
   return (
     <select
       className={`py-2 ring-1 my-2 bg-main-1 dark:bg-main-dark-2 focus:bg-main-2 px-4 ring-main-2 rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-main-1 focus:border-main-1 ${className}`}
@@ -163,7 +171,7 @@ export const TitleWithGoBack = ({
   );
 };
 
-export const GoalBar = ({ max, current }: any) => {
+export const GoalBar = ({ max, current }: { max: any; current: any }) => {
   let completion = (current / max) * 100;
   return (
     <div

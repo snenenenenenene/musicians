@@ -1,7 +1,7 @@
 import 'react-spring-bottom-sheet/dist/style.css';
 import { BottomSheet } from 'react-spring-bottom-sheet';
 
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 
 import { Swiping } from '../swiping.components/swiping.component';
 import { IoMdArrowDown } from 'react-icons/io';
@@ -12,7 +12,7 @@ export const SwipingModal = ({ open = false, setOpen = () => {} }: any) => {
   const onDismiss = () => {
     setOpen(!open);
   };
-  const { user, playing } = useContext(GlobalContext);
+  const { user } = useContext(GlobalContext);
   const { theme } = useContext(ThemeContext);
 
   return (

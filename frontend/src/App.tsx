@@ -2,7 +2,7 @@ import './App.css';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-spring-bottom-sheet/dist/style.css';
 
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import Analytics from './pages/analytics.page';

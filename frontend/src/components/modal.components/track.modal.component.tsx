@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import React, { useContext, useState } from 'react';
-import { MdClear, MdEuro, MdMusicNote, MdPause, MdPlayArrow } from 'react-icons/md';
+import { MdClear, MdMusicNote, MdPause, MdPlayArrow } from 'react-icons/md';
 import { IoMdHeart, IoMdHeartEmpty, IoMdWallet } from 'react-icons/io';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
 import { Link, useNavigate, useParams } from 'react-router-dom';

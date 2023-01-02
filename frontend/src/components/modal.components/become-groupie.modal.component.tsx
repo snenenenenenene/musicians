@@ -3,7 +3,6 @@ import 'react-spring-bottom-sheet/dist/style.css';
 import { BottomSheet } from 'react-spring-bottom-sheet';
 import { IoMdArrowDown } from 'react-icons/io';
 import { CheckBox } from '../../constants/Layout';
-import Container from '../common.components/container.component';
 import Button from '../common.components/button.component';
 import { Link } from 'react-router-dom';
 import { ThemeContext } from '../../services/theme-provider';
