@@ -4,9 +4,9 @@ import ReactDOM from 'react-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ToastContainer } from 'react-toastify';
 import App from './App';
-import './index.css';
 import CurrentSongStore from './services/store';
 import { ThemeProvider } from './services/theme-provider';
+import './styles/tailwind.css';
 
 const queryClient = new QueryClient();
 

@@ -51,15 +51,13 @@
     "test-utils": "^1.1.1"
   },
   "scripts": {
-    "start": "serve -s build",
-    "dev": "react-scripts start",
+    "start": "run-p watch:css react-scripts:start",
     "build": "run-s build:css react-scripts:build",
     "test": "react-scripts test",
-    "e2e": "cypress open",
     "eject": "react-scripts eject",
-    "build:css": "cross-env TAILWIND_MODE=build NODE_ENV=production postcss src/styles/tailwind.css -o src/index.css",
-    "watch:css": "cross-env TAILWIND_MODE=watch NODE_ENV=development postcss src/styles/tailwind.css -o src/index.css --watch",
-    "react-scripts:start": "react-scripts --max_old_space_size=4096 start",
+    "build:css": "cross-env postcss src/styles/tailwind.css -o src/styles/index.css",
+    "watch:css": "cross-env postcss src/styles/tailwind.css -o src/styles/index.css --watch",
+    "react-scripts:start": "sleep 5 && react-scripts start",
     "react-scripts:build": "react-scripts build"
   },
   "eslintConfig": {
