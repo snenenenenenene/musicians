@@ -1,16 +1,16 @@
-import './App.css';
-import 'react-toastify/dist/ReactToastify.css';
 import 'react-spring-bottom-sheet/dist/style.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 import React, { useContext } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
-import Analytics from './pages/analytics.page';
+import Navbar from './components/common.components/navbar.component';
 import { SwipingModal } from './components/modal.components/swiping.modal.component';
 import { TrackModal } from './components/modal.components/track.modal.component';
-import Navbar from './components/common.components/navbar.component';
+import Analytics from './pages/analytics.page';
 import { MusicPlayer } from './pages/music-player.page';
 
+import ReactPlayer from 'react-player';
 import {
   BecomeMusician,
   EditBand,
@@ -31,12 +31,11 @@ import {
   Transactions,
   User,
 } from './pages';
-import { GlobalContext } from './services/store';
-import { Fandoms } from './pages/fandoms.page';
-import { UserProductsPage } from './pages/users-products.page';
-import { GoalPayment } from './pages/goals-payment.page';
-import ReactPlayer from 'react-player';
 import { Bids } from './pages/bids.page';
+import { Fandoms } from './pages/fandoms.page';
+import { GoalPayment } from './pages/goals-payment.page';
+import { UserProductsPage } from './pages/users-products.page';
+import { GlobalContext } from './services/store';
 
 export function App() {
   const {

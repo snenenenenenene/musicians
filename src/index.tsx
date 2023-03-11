@@ -6,7 +6,7 @@ import { ToastContainer } from 'react-toastify';
 import App from './App';
 import CurrentSongStore from './services/store';
 import { ThemeProvider } from './services/theme-provider';
-
+import './styles/index.css';
 const queryClient = new QueryClient();
 async function main() {
   if (process.env.REACT_APP_API_MOCKING === 'enabled') {
