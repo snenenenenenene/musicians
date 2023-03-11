@@ -1,12 +1,6 @@
 import React, { useContext } from 'react';
 import { IoMdMoon, IoMdSunny } from 'react-icons/io';
-import {
-  MdAttachMoney,
-  MdAutoGraph,
-  MdMusicNote,
-  MdPerson,
-  MdPersonAdd
-} from 'react-icons/md';
+import { MdAttachMoney, MdAutoGraph, MdMusicNote, MdPerson, MdPersonAdd } from 'react-icons/md';
 import { Link, useNavigate } from 'react-router-dom';
 import Switch from 'react-switch';
 import Container from '../components/common.components/container.component';
@@ -35,6 +29,7 @@ export default function Settings() {
     <div className="w-full md:h-16 p-3 rounded-3xl my-1 cursor-pointer hover:bg-main-2 dark:hover:bg-main-dark-2 overflow-hidden items-center flex ">
       {theme === 'dark' ? <IoMdMoon /> : <IoMdSunny />}
       <h1 className="p-3">Dark Mode</h1>
+      {/* @ts-ignore ts(2786) */}
       <Switch
         cy-data="toggle-dark-mode"
         className="ml-auto"
