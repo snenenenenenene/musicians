@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Band, Goals, LoginData, Product, RegisterData, User } from '../constants/types';
+import { Band, Goals, LoginData, Product, User } from '../constants/types';
 
 const mockApi: boolean = process.env.REACT_APP_API_MOCKING === 'enabled' ? true : false;
 axios.defaults.baseURL = mockApi

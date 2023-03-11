@@ -1,6 +1,5 @@
 import { nanoid } from 'nanoid';
 import React, { useContext } from 'react';
-import { FiSettings } from 'react-icons/fi';
 import { MdMusicNote, MdSettings } from 'react-icons/md';
 import { useQuery } from 'react-query';
 import { Link, useNavigate } from 'react-router-dom';
@@ -13,11 +12,8 @@ import { getUserBandsById } from '../services/api-calls';
 import { GlobalContext } from '../services/store';
 import { Error } from './erorr.page';
 
-// page where bands are displayed and where musicians can choose a band or configure their bands
-
 export default function ManageBands() {
   const { setBand, band, user } = useContext(GlobalContext);
-  // get all bands by user id
   const {
     data,
     error,

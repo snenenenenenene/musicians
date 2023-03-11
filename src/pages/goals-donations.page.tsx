@@ -1,4 +1,3 @@
-import e from 'express';
 import React, { useState } from 'react';
 import { MdArrowBackIos, MdAttachMoney } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
@@ -7,7 +6,7 @@ import Container from '../components/common.components/container.component';
 import Input from '../components/common.components/input.component';
 
 export const GoalDonation = () => {
-  const [goalData, setGoalData] = useState({ amountToAchieve: 0 });
+  const [, setGoalData] = useState({ amountToAchieve: 0 });
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();

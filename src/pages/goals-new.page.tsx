@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { MdArrowBackIos, MdPostAdd } from 'react-icons/md';
+import { MdPostAdd } from 'react-icons/md';
 import { useMutation, useQueryClient } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';

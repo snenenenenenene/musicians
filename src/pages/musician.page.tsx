@@ -1,22 +1,21 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { FaCross, FaPlus } from 'react-icons/fa';
 import { IoMdArrowDropdown, IoMdMicrophone } from 'react-icons/io';
 import { MdAdd, MdClose, MdMenu, MdPerson } from 'react-icons/md';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 
+import { nanoid } from 'nanoid';
 import BandGoals from '../components/band.components/band-goals.component';
 import BandProducts from '../components/band.components/band-products.component';
 import { AddButton } from '../components/common.components/button.component';
-import { BecomeGroupieModal } from '../components/modal.components/become-groupie.modal.component';
-import { Loader } from '../components/common.components/loader.component';
 import Container from '../components/common.components/container.component';
+import { Loader } from '../components/common.components/loader.component';
+import { BecomeGroupieModal } from '../components/modal.components/become-groupie.modal.component';
 import Flex, { FlexCol } from '../constants/Layout';
+import { Band } from '../constants/types';
 import { becomeFanOfBandWithId, getBandById, getUserBandsById } from '../services/api-calls';
 import { GlobalContext } from '../services/store';
 import { Error } from './erorr.page';
-import { Band } from '../constants/types';
-import { nanoid } from 'nanoid';
 
 export const Musician = ({ ownAccount = true }: { ownAccount?: boolean }) => {
   const navigate = useNavigate();

@@ -39,7 +39,6 @@ export const Store = ({ children }: { children: any }) => {
   const [playedSeconds, setPlayedSeconds] = useState(0);
   const [muted, setMuted] = useState(false);
   const [duration, setDuration] = useState(false);
-  const [seeking, setSeeking] = useState(false);
 
   const [band, setBand] = useState<Band | { id: -1; name: string }>({ id: -1, name: 'NO_BAND' });
   const [volume, setVolume] = useState(1.0);
@@ -49,15 +48,6 @@ export const Store = ({ children }: { children: any }) => {
   };
   const handleDuration = (duration) => {
     setDuration(duration);
-  };
-
-  const handleStop = () => {
-    setCurrentSong(null);
-    setPlaying(false);
-  };
-
-  const handleVolumeChange = (e) => {
-    setVolume(parseFloat(e.target.value));
   };
 
   const handleToggleMuted = () => {
@@ -72,19 +62,9 @@ export const Store = ({ children }: { children: any }) => {
     setPlaying(false);
   };
 
-  const handleSeekMouseDown = (e) => {
-    setSeeking(true);
-  };
-
   const handleSeekChange = (e) => {
     setPlayed(parseFloat(e.target.value));
   };
-
-  // const handleSeekMouseUp = (e) => {
-  //   setSeeking(false);
-  //   player?.seekTo(parseFloat(e.target.value));
-  // };
-
   const handleProgress = (e) => {
     setPlayedSeconds(e.playedSeconds);
     setPlayed(e.played);

@@ -1,22 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { MdArrowBackIos, MdEuro, MdMusicNote } from 'react-icons/md';
-import { useMutation, useQueries, useQueryClient } from 'react-query';
+import { MdEuro, MdMusicNote } from 'react-icons/md';
+import { useMutation, useQueryClient } from 'react-query';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import Button from '../components/common.components/button.component';
 import Container from '../components/common.components/container.component';
 import Input from '../components/common.components/input.component';
-import {
-  becomeGroupieOfBandWithId,
-  buyProduct,
-  donateToGoal,
-  getBandById,
-  getGoalById,
-  getProductById,
-  placeBid,
-} from '../services/api-calls';
 import { CheckBox, TitleWithGoBack } from '../constants/Layout';
-import { toast } from 'react-toastify';
 import { Band, Goals, Product, User } from '../constants/types';
+import { becomeGroupieOfBandWithId, placeBid } from '../services/api-calls';
 import { GlobalContext } from '../services/store';
 
 export const Payment = () => {
@@ -27,27 +19,7 @@ export const Payment = () => {
   const [amount, setAmount] = useState<number | undefined>(Number(params.amount));
   const { user }: { user: User } = useContext(GlobalContext);
   const navigate = useNavigate();
-  const [data, setData] = useState<Product | Goals | Band | any | undefined>();
-
-  const results = useQueries([
-    {
-      queryKey: ['products'],
-      queryFn: () => getProductById(idParam),
-      onSuccess: (data: Product) => {
-        console.log(data);
-        setData(data);
-      },
-      enabled: path === 'products',
-    },
-    {
-      queryKey: ['bands', 'users'],
-      queryFn: () => getBandById(idParam),
-      onSuccess: (data: Band) => {
-        setData(data);
-      },
-      enabled: path === 'subscription',
-    },
-  ]);
+  const [data] = useState<Product | Goals | Band | any | undefined>();
 
   const location = useLocation();
   const [bidPrice, setBidPrice] = useState<number>(
@@ -57,17 +29,6 @@ export const Payment = () => {
   const handleCheck = (value) => {
     setCheck(value);
   };
-
-  const buyProductMutation = useMutation(
-    (productId: number) => buyProduct(productId, user.id!, bidPrice),
-    {
-      onSuccess: () => {
-        toast(`Purchased ${data.name}`, { type: 'success' });
-        queryClient.invalidateQueries('products');
-        navigate(`/account`);
-      },
-    }
-  );
 
   const placeBidMutation = useMutation(
     (productId: number) => placeBid(productId, user, data, bidPrice),
@@ -100,8 +61,9 @@ export const Payment = () => {
         setPath('subscription');
         setAmount(Number(params.amount));
       }
+      return '';
     });
-  }, [location, path]);
+  }, [location, params.amount, path]);
 
   return (
     <Container>

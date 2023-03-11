@@ -1,8 +1,8 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 
 import Container from '../components/common.components/container.component';
 import { UserFollowing } from '../components/user.components/user-following.component';
-import Flex, { TitleWithGoBack } from '../constants/Layout';
+import { TitleWithGoBack } from '../constants/Layout';
 import { GlobalContext } from '../services/store';
 
 export const Fandoms = () => {

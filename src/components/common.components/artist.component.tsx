@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MdCheck, MdMusicNote } from 'react-icons/md';
+import { MdMusicNote } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { Band } from '../../constants/types';
 

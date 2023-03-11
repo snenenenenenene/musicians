@@ -5,18 +5,18 @@ import { MdClose } from 'react-icons/md';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
 import TinderCard from 'react-tinder-card';
 
+import ReactPlayer from 'react-player';
 import { Product } from '../../constants/types';
 import { Error } from '../../pages/erorr.page';
 import { getProducts, likeProduct, unlikeProduct } from '../../services/api-calls';
 import { GlobalContext } from '../../services/store';
 import { Loader } from '../common.components/loader.component';
 import { Track } from '../common.components/track.component';
-import ReactPlayer from 'react-player';
 
 export const Swiping = ({ currUserId }: { currUserId: number }) => {
   const { data, error, status }: any = useQuery('products', getProducts);
   const [currentIndex, setCurrentIndex] = useState(data ? data!.length - 1 : 0);
-  const [lastDirection, setLastDirection] = useState('');
+  const [, setLastDirection] = useState('');
   const currentIndexRef = useRef(currentIndex);
 
   const { user, setCurrentSong, handlePlay } = useContext(GlobalContext);
@@ -40,7 +40,7 @@ export const Swiping = ({ currUserId }: { currUserId: number }) => {
       Array(data?.length)
         .fill(0)
         .map((i) => createRef()),
-    []
+    [data?.length]
   );
 
   const updateCurrentIndex = (val: number) => {
@@ -48,7 +48,7 @@ export const Swiping = ({ currUserId }: { currUserId: number }) => {
     currentIndexRef.current = val;
   };
 
-  const canGoBack = currentIndex < data?.length - 1;
+  // const canGoBack = currentIndex < data?.length - 1;
 
   const canSwipe = currentIndex >= 0;
 
@@ -75,12 +75,12 @@ export const Swiping = ({ currUserId }: { currUserId: number }) => {
     }
   };
 
-  const goBack = async () => {
-    if (!canGoBack) return;
-    const newIndex = currentIndex + 1;
-    updateCurrentIndex(newIndex);
-    await childRefs[newIndex].current.restoreCard();
-  };
+  // const goBack = async () => {
+  //   if (!canGoBack) return;
+  //   const newIndex = currentIndex + 1;
+  //   updateCurrentIndex(newIndex);
+  //   await childRefs[newIndex].current.restoreCard();
+  // };
 
   return (
     <div className="bg-main-2 dark:bg-main-dark-2 shadow justify-center align-middle md:w-1/3 w-full h-full flex relative">

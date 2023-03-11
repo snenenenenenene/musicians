@@ -1,12 +1,11 @@
 import { rest } from 'msw';
 import { Band, Bid, Goals, Product, Transaction, User } from '../constants/types';
 
-import userProfilePicture from '../assets/user-picture.jpg';
-import lennyProfilePicture from '../assets/lenny-picture.gif';
-import senneProfilePicture from '../assets/senne-picture.gif';
 import jonasProfilePicture from '../assets/jonas-picture.gif';
-import johnProfilePicture from '../assets/john-picture.gif';
+import lennyProfilePicture from '../assets/lenny-picture.gif';
 import robinProfilePicture from '../assets/robin-picture.gif';
+import senneProfilePicture from '../assets/senne-picture.gif';
+import userProfilePicture from '../assets/user-picture.jpg';
 import zitaProfilePicture from '../assets/zita-picture.gif';
 
 const bands: Band[] = [
@@ -331,6 +330,7 @@ export const handlers: any = [
           console.log('Pused user to band');
           user.bands.push(band);
         }
+        return '';
       });
 
       return res(ctx.json(band));
@@ -349,6 +349,7 @@ export const handlers: any = [
       if (user && user.bands && !user.bands.includes(newBand)) {
         user.bands.push(newBand);
       }
+      return 0;
     });
 
     bands.push(newBand);
@@ -376,6 +377,7 @@ export const handlers: any = [
         if (user!.bands === undefined) user!.bands = [];
 
         user!.bands.push(newBand);
+        return 0;
       });
     }
 

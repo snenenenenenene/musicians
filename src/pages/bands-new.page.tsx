@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import Dropzone from 'react-dropzone';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
 import { useNavigate } from 'react-router-dom';
+import Select from 'react-select';
 import { toast } from 'react-toastify';
 import Button from '../components/common.components/button.component';
 import Container from '../components/common.components/container.component';
@@ -10,7 +11,6 @@ import { Title, TitleWithGoBack } from '../constants/Layout';
 import { Band, User } from '../constants/types';
 import { getMusicians, postBand } from '../services/api-calls';
 import { GlobalContext } from '../services/store';
-import Select from 'react-select';
 
 export const NewBand = () => {
   const { user } = useContext(GlobalContext);
@@ -33,26 +33,16 @@ export const NewBand = () => {
 
   // get all users with musician role
 
-  const {
-    data,
-    error,
-    status,
-  }: { data?: User[]; error: { message: string } | null; status: string } = useQuery(
+  const { data }: { data?: User[]; error?: { message: string } | null; status?: string } = useQuery(
     'users',
     getMusicians
   );
 
   const onChange = (selectedOptions) => {
     setValue(selectedOptions);
-    // add all members to the band including the current user
     const _members = selectedOptions.map((option) => option.value);
     _members.push(user.id);
     setBand({ ...band, members: _members });
-
-    // setBand({
-    //   ...band,
-    //   members: [...selectedOptions.flatMap((option) => option.value)],
-    // });
   };
   useEffect(() => {
     console.log(band);
@@ -87,6 +77,7 @@ export const NewBand = () => {
                 <img
                   className="absolute w-full bg-main-dark-1 object-contain h-full"
                   src={band.picture}
+                  alt={band.name}
                 />
               )}
             </div>

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { MdArrowBackIos, MdEuro } from 'react-icons/md';
+import { MdEuro } from 'react-icons/md';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -16,15 +16,12 @@ export const GoalPayment = () => {
   const queryClient = useQueryClient();
   const params = useParams();
   const idParam = Number(params.id);
-  const { user, band } = useContext(GlobalContext);
+  const { user } = useContext(GlobalContext);
   const navigate = useNavigate();
 
-  const {
-    data,
-    error,
-    status,
-  }: { data?: Goals; error: { message: string } | null; status: string } = useQuery('goals', () =>
-    getGoalById(user.id)
+  const { data }: { data?: Goals; error?: { message: string } | null; status?: string } = useQuery(
+    'goals',
+    () => getGoalById(user.id)
   );
 
   const [donation, setDonation] = useState<number>(10);

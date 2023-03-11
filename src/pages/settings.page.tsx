@@ -3,11 +3,9 @@ import { IoMdMoon, IoMdSunny } from 'react-icons/io';
 import {
   MdAttachMoney,
   MdAutoGraph,
-  MdEdit,
-  MdManageAccounts,
   MdMusicNote,
   MdPerson,
-  MdPersonAdd,
+  MdPersonAdd
 } from 'react-icons/md';
 import { Link, useNavigate } from 'react-router-dom';
 import Switch from 'react-switch';

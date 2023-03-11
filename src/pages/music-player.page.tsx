@@ -1,38 +1,17 @@
 import 'rc-slider/assets/index.css';
 
-import Slider from 'rc-slider';
-import React, { useContext, useRef } from 'react';
-import { MdMusicNote, MdPause, MdPlayArrow, MdSkipNext, MdSkipPrevious } from 'react-icons/md';
+import React, { useContext } from 'react';
+import { MdMusicNote } from 'react-icons/md';
 
+import ReactPlayer from 'react-player';
 import Container from '../components/common.components/container.component';
 import { FlexCol } from '../constants/Layout';
-import { GlobalContext } from '../services/store';
 import { convertSecondsToHHMMSS } from '../services/helpers';
-import ReactPlayer from 'react-player';
+import { GlobalContext } from '../services/store';
 
 export const MusicPlayer = () => {
-  const {
-    currentSong,
-    setCurrentSong,
-    volume,
-    setVolume,
-    handleToggleMuted,
-    muted,
-    duration,
-    setMuted,
-    played,
-    setPlayed,
-    playing,
-    playedSeconds,
-    setPlaying,
-    handlePlay,
-    handlePause,
-    handleSeekChange,
-    handleProgress,
-    handlePlayPause,
-    handleVolumeChange,
-    handleDuration,
-  } = useContext(GlobalContext);
+  const { currentSong, duration, played, playedSeconds, handleSeekChange } =
+    useContext(GlobalContext);
 
   return currentSong !== null ? (
     <Container className={`items-center h-full  px-5`}>

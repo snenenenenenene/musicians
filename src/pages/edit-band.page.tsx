@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import Dropzone from 'react-dropzone';
-import { useMutation, useQueries, useQueryClient } from 'react-query';
+import { useMutation, useQueries } from 'react-query';
 import { useNavigate, useParams } from 'react-router-dom';
 import Select from 'react-select';
 
@@ -9,16 +9,16 @@ import Container from '../components/common.components/container.component';
 import Input from '../components/common.components/input.component';
 import { Title, TitleWithGoBack } from '../constants/Layout';
 import { Band, User } from '../constants/types';
-import { deleteBand, getBandById, getMusicians, patchBand } from '../services/api-calls';
+import { getBandById, getMusicians, patchBand } from '../services/api-calls';
 import { GlobalContext } from '../services/store';
 
 export const EditBand = () => {
-  const queryClient = useQueryClient();
   const { user } = useContext(GlobalContext);
   const params = useParams();
   const bandId = Number(params.id);
   const [users, setUsers] = useState<{ label: string; value: number }[]>([]);
   const [value, setValue] = useState<any>();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const results = useQueries([
     {
       queryKey: ['bands'],
@@ -101,6 +101,7 @@ export const EditBand = () => {
               <p className="m-auto">Drag 'n' drop your band profile picture here!</p>{' '}
               {band.picture && (
                 <img
+                  alt={band.name}
                   className="absolute w-full bg-main-dark-1 object-contain h-full"
                   src={band?.picture}
                 />

@@ -1,12 +1,5 @@
 import React, { useContext, useState } from 'react';
-import {
-  IoMdHeart,
-  IoMdHeartEmpty,
-  IoMdTrash,
-  IoMdPause,
-  IoMdMusicalNote,
-  IoMdPlay,
-} from 'react-icons/io';
+import { IoMdHeart, IoMdHeartEmpty, IoMdMusicalNote, IoMdPause, IoMdPlay } from 'react-icons/io';
 import { MdMonetizationOn } from 'react-icons/md';
 import { useMutation, useQueryClient } from 'react-query';
 import { Link } from 'react-router-dom';
@@ -48,7 +41,7 @@ export const Track = ({
     },
   });
 
-  const { currentSong, setCurrentSong, band, user, playing, handlePlay, handlePlayPause } =
+  const { currentSong, setCurrentSong, user, playing, handlePlay, handlePlayPause } =
     useContext(GlobalContext);
   const [isHovered, setIsHovered] = useState(false);
   const [isMusicHovered, setIsMusicHovered] = useState(false);

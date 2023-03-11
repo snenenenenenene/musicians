@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { MdArrowLeft, MdArrowRight, MdEuro } from 'react-icons/md';
+import { MdArrowRight } from 'react-icons/md';
 import { useQuery } from 'react-query';
 import Container from '../components/common.components/container.component';
 import { Loader } from '../components/common.components/loader.component';

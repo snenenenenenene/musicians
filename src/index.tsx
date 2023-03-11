@@ -1,12 +1,11 @@
-import ReactDOM from 'react-dom';
-import './styles/index.css';
-import App from './App';
-import { QueryClientProvider, QueryClient } from 'react-query';
-import React from 'react';
-import { ThemeProvider } from './services/theme-provider';
 import { AnimatePresence } from 'framer-motion';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import { ToastContainer } from 'react-toastify';
+import App from './App';
 import CurrentSongStore from './services/store';
+import { ThemeProvider } from './services/theme-provider';
 
 const queryClient = new QueryClient();
 async function main() {

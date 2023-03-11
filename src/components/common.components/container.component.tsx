@@ -1,6 +1,5 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { Player } from '../music-player.components/music-player-widget.component';
+import React from 'react';
 
 export default function Container({ children, className }: any) {
   return (

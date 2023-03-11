@@ -56,7 +56,7 @@ export const NewProduct = () => {
     return () => {
       document.removeEventListener('keydown', keyDownHandler);
     };
-  }, []);
+  }, [navigate]);
 
   return (
     <Container>
@@ -81,6 +81,7 @@ export const NewProduct = () => {
                   </p>
                   {product.picture && (
                     <img
+                      alt={product.name}
                       className="absolute w-full bg-main-dark-1 object-contain h-full"
                       src={product.picture}
                     />

@@ -7,7 +7,7 @@ import Container from '../components/common.components/container.component';
 import { Loader } from '../components/common.components/loader.component';
 import { TitleWithGoBack } from '../constants/Layout';
 import { Bid, Product } from '../constants/types';
-import { acceptBid, getProductById, getProductsByBandId } from '../services/api-calls';
+import { acceptBid, getProductById } from '../services/api-calls';
 import { Error } from './erorr.page';
 
 export const Bids = () => {

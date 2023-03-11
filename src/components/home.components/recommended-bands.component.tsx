@@ -1,10 +1,10 @@
 import React from 'react';
 import { useQuery } from 'react-query';
+import { Carousel } from '../../constants/Layout';
+import { Band } from '../../constants/types';
+import { Error } from '../../pages/erorr.page';
 import getBands from '../../services/api-calls';
 import { Loader } from '../common.components/loader.component';
-import { Error } from '../../pages/erorr.page';
-import { Band, Product } from '../../constants/types';
-import { Carousel } from '../../constants/Layout';
 
 export const RecommendedBands = () => {
   const {

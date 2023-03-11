@@ -1,26 +1,24 @@
-import React, { useContext, useState } from 'react';
-import { FlexCol, Select, TitleWithGoBack } from '../constants/Layout';
-import Container from '../components/common.components/container.component';
-import { GlobalContext } from '../services/store';
-import { useQuery } from 'react-query';
-import { getUserAnalytics } from '../services/api-calls';
-import { Loader } from '../components/common.components/loader.component';
-import { Error } from './erorr.page';
 import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
   BarElement,
+  CategoryScale,
+  Chart as ChartJS,
+  Legend,
+  LinearScale,
   Title,
   Tooltip,
-  Legend,
 } from 'chart.js';
+import React, { useContext } from 'react';
 import { Bar } from 'react-chartjs-2';
+import { useQuery } from 'react-query';
+import Container from '../components/common.components/container.component';
+import { Loader } from '../components/common.components/loader.component';
+import { TitleWithGoBack } from '../constants/Layout';
+import { getUserAnalytics } from '../services/api-calls';
+import { GlobalContext } from '../services/store';
+import { Error } from './erorr.page';
 
 export default function Analytics() {
-  const [dateRange, setDateRange] = useState('Last Day');
-  const { user, band, setBand } = useContext(GlobalContext);
-  const [changeBandsMenu, setChangeBandsMenu] = useState('-top-full');
+  const { user } = useContext(GlobalContext);
 
   const { data, error, status }: any = useQuery(['users', user], () => getUserAnalytics(user?.id), {
     onSuccess: (data: any) => {
@@ -28,48 +26,48 @@ export default function Analytics() {
     },
   });
 
-  const Entry = ({ title, number }: any) => {
-    return (
-      <FlexCol>
-        {title}
-        <div className="font-bold">{number}</div>
-      </FlexCol>
-    );
-  };
+  // const Entry = ({ title, number }: any) => {
+  //   return (
+  //     <FlexCol>
+  //       {title}
+  //       <div className="font-bold">{number}</div>
+  //     </FlexCol>
+  //   );
+  // };
 
-  const showDateRange = () => {
-    switch (dateRange) {
-      case 'Last Day':
-        return (
-          <FlexCol>
-            <Entry number={10} title="Visitors" />
-            <Entry number={8} title="Fans" />
-            <Entry number={4} title="Groupies" />
-            <Entry number={18} title="Shares" />
-          </FlexCol>
-        );
-      case 'Last Week':
-        return (
-          <FlexCol>
-            <Entry number={901} title="Visitors" />
-            <Entry number={78} title="Fans" />
-            <Entry number={17} title="Groupies" />
-            <Entry number={43} title="Shares" />
-          </FlexCol>
-        );
-      case 'Last Month':
-        return (
-          <FlexCol>
-            <Entry number={'1.8k'} title="Visitors" />
-            <Entry number={900} title="Fans" />
-            <Entry number={139} title="Groupies" />
-            <Entry number={76} title="Shares" />
-          </FlexCol>
-        );
-      default:
-        break;
-    }
-  };
+  // const showDateRange = () => {
+  //   switch (dateRange) {
+  //     case 'Last Day':
+  //       return (
+  //         <FlexCol>
+  //           <Entry number={10} title="Visitors" />
+  //           <Entry number={8} title="Fans" />
+  //           <Entry number={4} title="Groupies" />
+  //           <Entry number={18} title="Shares" />
+  //         </FlexCol>
+  //       );
+  //     case 'Last Week':
+  //       return (
+  //         <FlexCol>
+  //           <Entry number={901} title="Visitors" />
+  //           <Entry number={78} title="Fans" />
+  //           <Entry number={17} title="Groupies" />
+  //           <Entry number={43} title="Shares" />
+  //         </FlexCol>
+  //       );
+  //     case 'Last Month':
+  //       return (
+  //         <FlexCol>
+  //           <Entry number={'1.8k'} title="Visitors" />
+  //           <Entry number={900} title="Fans" />
+  //           <Entry number={139} title="Groupies" />
+  //           <Entry number={76} title="Shares" />
+  //         </FlexCol>
+  //       );
+  //     default:
+  //       break;
+  //   }
+  // };
   const month_names = [
     'January',
     'February',
