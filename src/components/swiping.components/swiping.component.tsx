@@ -102,6 +102,7 @@ export const Swiping = ({ currUserId }: { currUserId: number }) => {
               <div className="rounded-3xl relative shadow w-full flex flex-col overflow-hidden bg-main-2 dark:bg-main-dark-2">
                 {product.audio && product?.fileType === 'video/mp4' ? (
                   <div className="h-full w-full flex bg-main-dark-1">
+                    {/* @ts-ignore ts(2786) */}
                     <ReactPlayer
                       url={product.audio}
                       width="100%"
@@ -120,6 +121,7 @@ export const Swiping = ({ currUserId }: { currUserId: number }) => {
                   </div>
                 ) : product.picture ? (
                   <>
+                    {/* @ts-ignore ts(2786) */}
                     <ReactPlayer
                       url={product.audio}
                       height={0}
@@ -142,7 +144,7 @@ export const Swiping = ({ currUserId }: { currUserId: number }) => {
                     />
                   </>
                 ) : (
-                  <div className="h-full w-full flex justify-center bg-main-1 dark:bg-main-dark-1 dark:bg-main-dark-1 items-center">
+                  <div className="h-full w-full flex justify-center bg-main-1 dark:bg-main-dark-1 dark:text-main-1 items-center">
                     <FiMusic className="text-5xl" />
                   </div>
                 )}

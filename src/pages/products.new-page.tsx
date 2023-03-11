@@ -110,19 +110,22 @@ export const NewProduct = () => {
                     Drag 'n' drop some files here, or click to select files
                   </p>
                   {product.audio && (
-                    <ReactPlayer
-                      height={'full'}
-                      width={'full'}
-                      volume={40}
-                      playing
-                      controls={false}
-                      onStart={() => {
-                        setCurrentSong(undefined);
-                      }}
-                      className="absolute w-full bg-main-dark-1 object-contain h-full"
-                      style={{ position: 'absolute' }}
-                      url={product.audio}
-                    />
+                    <>
+                      {/* @ts-ignore ts(2786) */}
+                      <ReactPlayer
+                        height={'full'}
+                        width={'full'}
+                        volume={40}
+                        playing
+                        controls={false}
+                        onStart={() => {
+                          setCurrentSong(undefined);
+                        }}
+                        className="absolute w-full bg-main-dark-1 object-contain h-full"
+                        style={{ position: 'absolute' }}
+                        url={product.audio}
+                      />
+                    </>
                   )}
                 </div>
               </section>

@@ -20,6 +20,7 @@ export const MusicPlayer = () => {
           <div className="object-cover justify-center items-center flex rounded-3xl text-main-dark-1 bg-main-dark-1 w-96 dark:text-main-1 overflow-hidden md:w-full aspect-w-1 aspect-h-1">
             {currentSong.audio && currentSong?.fileType === 'video/mp4' ? (
               <div className="h-full w-full flex bg-main-dark-1">
+                {/* @ts-ignore ts(2786) */}
                 <ReactPlayer
                   url={currentSong.audio}
                   width="100%"
@@ -31,6 +32,7 @@ export const MusicPlayer = () => {
               </div>
             ) : currentSong.picture ? (
               <>
+                {/* @ts-ignore ts(2786) */}
                 <ReactPlayer
                   url={currentSong.audio}
                   height={0}

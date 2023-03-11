@@ -67,6 +67,7 @@ export function App() {
 
   return (
     <Router>
+      {/* @ts-ignore ts(2786) */}
       <ReactPlayer
         url={currentSong?.audio}
         playing={playing}
